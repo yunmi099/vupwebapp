@@ -7,7 +7,7 @@ const StyledFooter = styled.footer`
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 1.2em;
+  font-size: 1em;
   color: white;
 `;
 const Footer = () => {

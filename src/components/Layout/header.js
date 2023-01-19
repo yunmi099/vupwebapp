@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  font-size: 1.3em;
+  font-size: 1.1em;
   color: white;
 `;
 function Header() {
