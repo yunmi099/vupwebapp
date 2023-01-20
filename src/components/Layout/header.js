@@ -1,6 +1,6 @@
 import styled from "styled-components";
 const StyledHeader = styled.header`
-  background: #81d4fa;
+  background: #1e88e5;
   width: 100vw;
   height: 7vh;
   display: fixed;

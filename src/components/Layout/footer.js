@@ -1,6 +1,6 @@
 import styled from "styled-components";
 const StyledFooter = styled.footer`
-  background-color: #81d4fa;
+  background-color: #1e88e5;
   width: 100vw;
   height: 6vh;
   display: fixed;

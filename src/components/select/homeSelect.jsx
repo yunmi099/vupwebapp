@@ -1,36 +1,46 @@
 import styled from "styled-components";
-import "./menu.css";
 import { useNavigate } from "react-router-dom";
 
-const Menu = () => {
+const Select= () => {
   const navigate = useNavigate();
   return (
-    <div className="list">
-      <li
-        className="button"
+    <div>
+      <StyledLi
         onClick={() => {
           navigate("/ansan");
         }}
       >
         안산 도금
-      </li>
-      <li
-        className="button"
+      </StyledLi>
+      <StyledLi
         onClick={() => {
           navigate("/sihwa");
         }}
       >
         시화 도금
-      </li>
-      <li
-        className="button"
+      </StyledLi>
+      <StyledLi
         onClick={() => {
           navigate("/seoulsihwa");
         }}
       >
         시화 서울 도금
-      </li>
+      </StyledLi>
     </div>
   );
 };
-export default Menu;
+const StyledLi = styled.div`
+border:solid 1px;
+border-color: #1e88e5;
+border-radius: 17px;
+background-color:white;
+color: #1e88e5;
+padding:10px 10vw;
+margin: 20px;
+display:flex;
+flex-direction: row;
+justify-content: space-evenly;
+font-size: 0.8em;
+font-weight: 800;
+`
+export default Select;

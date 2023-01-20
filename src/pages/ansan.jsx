@@ -23,10 +23,9 @@ useEffect(() => {
 
     return(
     <div className = "mainInner">
-        <Info/>
+        <Info device={0}/>
         <GraphWrap>
-        <Graph/>
-    <   Graph/></GraphWrap>
+        <Graph/></GraphWrap>
     </div>)
 }
 const GraphWrap = styled.div`

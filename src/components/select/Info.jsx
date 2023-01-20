@@ -1,6 +1,11 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Info.css";
-const Info = ()=>{
+import { device_id0 } from "../../assets/Device/ansan";
+import { device_id1 } from "../../assets/Device/sihwa";
+import { device_id2 } from "../../assets/Device/sihwaseoul";
+const Info = (props)=>{
+      
+    const [device , setDevice] = useState("AS00001");
     return(
         <div className = "select">
     <form>
@@ -13,18 +18,17 @@ const Info = ()=>{
         <div className="titleFont">
             Device Id
         </div>
+        <select className = "input" onChange={e=>setDevice(e.target.value)}>
+        {device_id0.map((key, index)=>{
+            return(
+        <option key={index}>{key.company}</option>);})}
+        </select>
         <select className = "input">
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
+        {
+             device_id0.map((key)=>
+                (device === key.company)? (key.device).map(key=><option>{key}</option>):null
+                )
+        }
         </select>
     </form>
     </div>);
