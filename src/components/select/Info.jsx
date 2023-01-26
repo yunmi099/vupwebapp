@@ -26,7 +26,7 @@ const Info = (props)=>{
         <select className = "input">
         {
              device_id0.map((key)=>
-                (device === key.company)? (key.device).map(key=><option>{key}</option>):null
+                (device === key.company)? (key.device).map((key, index)=><option key={index}>{key}</option>):null
                 )
         }
         </select>
