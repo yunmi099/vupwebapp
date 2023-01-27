@@ -4,8 +4,10 @@ import styled from 'styled-components';
 import Spinner from "react-activity/dist/Spinner";
 import "react-activity/dist/Spinner.css";
 import Select from "../components/select/homeSelect";
+import Login from "../components/Login/login";
+import success from "../recoil/loginSuccess";
+import {useRecoilState} from 'recoil'
 const StyledHeader = styled.header`
-background-color: #e2f6ff ;
 min-height: 100vh;
 display: flex;
 flex-direction: column;
@@ -17,19 +19,20 @@ color: #1e88e5;
 `
 function Splash() {
   const [animating, setAnimating] = useState(true);
+  const [loginSuccess, setLoginSuccess] = useRecoilState(success);
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
       setAnimating(false);
     }, 3000);
   }, []);
+
   return (
     <StyledHeader>
-      <h1>고등기술연구원</h1>
+      <img src={require('../assets/images/Logo/logo1.jpeg')} width="62%"/>
       <Spinner animating={animating} style={{ marginBottom: "10%" }} />
-      {animating ? null : <Select/>}
+      {animating ? null : (loginSuccess===true ? <Select/>: <Login/>)}
     </StyledHeader>
   );
 }
-
 export default Splash;

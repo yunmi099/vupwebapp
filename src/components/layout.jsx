@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Layout/header";
 import Footer from "./Layout/footer";
 import styled from "styled-components";
-import Menu from "./Layout/menu";
+import Menu from "./Layout/menu/menu";
 function Layout({children}) {
 
     return(

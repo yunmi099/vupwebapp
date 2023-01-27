@@ -7,21 +7,21 @@ const Select= () => {
     <div>
       <StyledLi
         onClick={() => {
-          navigate("/ansan");
+          navigate("prevansan");
         }}
       >
         안산 도금
       </StyledLi>
       <StyledLi
         onClick={() => {
-          navigate("/sihwa");
+          navigate("/prevsihwa");
         }}
       >
         시화 도금
       </StyledLi>
       <StyledLi
         onClick={() => {
-          navigate("/seoulsihwa");
+          navigate("/prevseoulsihwa");
         }}
       >
         시화 서울 도금
