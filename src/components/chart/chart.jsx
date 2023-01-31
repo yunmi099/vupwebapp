@@ -12,7 +12,7 @@ const Graph = () => {
   async function getData() {
     try {
       const response = await axios.get(
-        `http://192.168.3.125:8080/api/vup?start_dt=2023-01-05&end_dt=2023-01-05&device_id=AS00010_E00002`
+        `http://192.168.3.125:8080/api/vup?start_dt=2022-02-01&end_dt=2022-02-02&device_id=AS00010_E00002`
       );
       setData(response.data);
 

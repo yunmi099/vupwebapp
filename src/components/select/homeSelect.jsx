@@ -7,7 +7,7 @@ const Select= () => {
     <div>
       <StyledLi
         onClick={() => {
-          navigate("prevansan");
+          navigate("/prevansan");
         }}
       >
         안산 도금
