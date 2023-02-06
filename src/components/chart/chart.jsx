@@ -4,18 +4,24 @@ import { Line, Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto'
 import { options_1, options_2 } from './option';
 import axios from "axios";
+import { useDateContext } from '../../context/dateContext';
+import { useDeviceContext } from '../../context/deviceContext';
+import Dataset1 from '../../js/dataset1';
+import Dataset2 from '../../js/dataset2';
 const Graph = () => {
   const [size, setSize] = useState(false);
-  const [Data, setData] = useState([]);
   const [dataset1, setDataset1] = useState({});
   const [dataset2, setDataset2] = useState({});
+  const {startDate, endDate} = useDateContext();
+  const {deviceId} = useDeviceContext();
   async function getData() {
     try {
       const response = await axios.get(
-        `http://192.168.3.125:8080/api/vup?start_dt=2022-02-01&end_dt=2022-02-02&device_id=AS00010_E00002`
+        `http://192.168.3.125:8080/api/vup?start_dt=${startDate}&end_dt=${endDate}&device_id=${deviceId}`
       );
-      setData(response.data);
-
+      if (response.data.length !==0 ){
+        setDataset1(Dataset1(response.data));
+        setDataset2(Dataset2(response.data));}
     } catch (e) {
       console.log(e);
     }
@@ -37,52 +43,8 @@ const Graph = () => {
    
     }
   })
-  useEffect(()=>{    
-    if (Data.length !==0 ){
-      setDataset1({
-        labels: Data.map((key) => key.COLLECTED_DT.substring(11, 19)),
-        datasets: [
-          {
-            type: "line",
-            label: "CRNT",
-            yAxisID: "y",
-            borderColor: "grey",
-            borderWidth: 2,
-            data: Data.map((key) => key.CRNT),
-          },
-          {
-            type: "line",
-            label: "VOLT",
-            yAxisID: "y_sub",
-            backgroundColor: "rgb(255, 99, 132)",
-            data: Data.map((key) => key.VOLT),
-            borderColor: "red",
-            borderWidth: 2,
-          },
-          {
-            type: "line",
-            label: "POWR",
-            yAxisID: "y_sub2",
-            backgroundColor: "rgb(75, 192, 192)",
-            data: Data.map((key) => key.POWR),
-          },
-        ],
-      });
-   
-      setDataset2({
-        labels: Data.map((key) => key.COLLECTED_DT.substring(11, 19)),
-        datasets: [
-          {
-            type: "line",
-            label: "POWR_AMT",
-            yAxisID: "y",
-            borderColor: "grey",
-            borderWidth: 2,
-            data: Data.map((key) => key.POWR_AMT),
-          },
-        ],
-      });
-    }},[Data]);
+
+    useEffect(()=>{getData();console.log(deviceId)},[startDate, endDate, deviceId])
 
 
   return (

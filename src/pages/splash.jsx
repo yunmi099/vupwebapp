@@ -5,8 +5,7 @@ import Spinner from "react-activity/dist/Spinner";
 import "react-activity/dist/Spinner.css";
 import Select from "../components/select/homeSelect";
 import Login from "../components/Login/login";
-import success from "../recoil/loginSuccess";
-import {useRecoilState} from 'recoil'
+import { useLoginContext } from "../context/loginContext";
 const StyledHeader = styled.header`
 min-height: 100vh;
 display: flex;
@@ -19,19 +18,24 @@ color: #1e88e5;
 `
 function Splash() {
   const [animating, setAnimating] = useState(true);
-  const [loginSuccess, setLoginSuccess] = useRecoilState(success);
+  const {success, setLoginSuccess} = useLoginContext();
   const navigate = useNavigate();
   useEffect(() => {
-    setTimeout(() => {
+    if (success){
       setAnimating(false);
-    }, 3000);
+    } else {
+      setTimeout(() => {
+        setAnimating(false);
+      }, 3000);
+    }
+
   }, []);
 
   return (
     <StyledHeader>
       <img src={require('../assets/images/Logo/logo1.jpeg')} width="62%"/>
       <Spinner animating={animating} style={{ marginBottom: "10%" }} />
-      {animating ? null : (loginSuccess===true ? <Select/>: <Login/>)}
+      {animating ? null : (success===true ? <Select/>: <Login/>)}
     </StyledHeader>
   );
 }

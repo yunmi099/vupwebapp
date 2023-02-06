@@ -1,12 +1,12 @@
 import { WrapDiv, StyledInput, SubmitInput } from "./style";
 import react, {useState} from "react";
-import { useRecoilState } from "recoil";
-import success from "../../recoil/loginSuccess";
+import { useLoginContext } from "../../context/loginContext";
 const Login = ()=>{
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
-    const [loginSuccess, setLoginSuccess] = useRecoilState(success);
+    const {loginSuccess, setLoginSuccess} = useLoginContext();
     const onSubmitEvent = (event)=>{
+        console.log(loginSuccess)
         event.preventDefault();
         if (id === "admin" && password==="admin"){
             setLoginSuccess(true);
@@ -16,7 +16,7 @@ const Login = ()=>{
     }
 
     return(
-        <WrapDiv onSubmit={(e)=>onSubmitEvent(e)}>
+        <WrapDiv onSubmit={(e)=>{onSubmitEvent(e)}}>
             <div style={{color: 'black', fontSize:'0.8em'}}>아이디</div>
             <StyledInput type="text" value={id} onChange={(e)=> setId(e.target.value)}/>
             <div style={{color: 'black', fontSize:'0.8em'}}>비밀번호</div>

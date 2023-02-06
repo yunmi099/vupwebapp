@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef } from 'react';
 const APIKEY = 'AIzaSyAd01GNKNnl9puewl_xMj2tcbpGiPUjJb8';
 function GoogleMap() {
   const mapElement = useRef(null);
-
   // 컴포넌트가 마운트될 때, 수동으로 스크립트를 넣어줍니다. 
   // ﻿이는 script가 실행되기 이전에 window.initMap이 먼저 선언되어야 하기 때문입니다.
   const loadScript = useCallback((url: string) => {
@@ -53,7 +52,7 @@ function GoogleMap() {
   }, [initMap, loadScript]);
 
 
-  return <div ref={mapElement} style={{ minHeight: '400px' }} />;
+  return <div ref={mapElement}  style={{ height: "30vh" , display:"flex", width:"100%"}}/>;
 }
 
 
