@@ -1,10 +1,10 @@
-import Graph from "../../components/chart/chart";
-import "../page.css"
+import Prev from "../../components/map/prev";
 const PrevSihwa = ()=>{
-
     return(
-    <div>
-        Siwha google map         
-    </div>)
+    <>
+      <Prev title={"시화도금"} location1={'/sihwa'} location2={'/calsihwa'}/>
+    </>)
 }
+
 export default PrevSihwa;
+

@@ -26,6 +26,13 @@ const Select= () => {
       >
         시화 서울 도금
       </StyledLi>
+      <StyledLi
+        onClick={() => {
+          navigate("/rountingtable");
+        }}
+      >
+        Routing Table 
+      </StyledLi>
     </div>
   );
 };
@@ -42,5 +49,9 @@ flex-direction: row;
 justify-content: space-evenly;
 font-size: 0.8em;
 font-weight: 800;
+&:hover {
+  border-color: #b3e5fc;
+  color: #b3e5fc;
+}
 `
 export default Select;
