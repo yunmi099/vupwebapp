@@ -23,7 +23,6 @@ const [city,setCity] = useState([]);
     useEffect(()=>{
    
         setDeviceId(device.concat('_', subDevice))
-        console.log(device.concat('_', subDevice));        
     },[device, subDevice])
     return(
         <div className = "select">

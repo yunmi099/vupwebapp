@@ -17,6 +17,7 @@ import CalSihwa from "./pages/calculation/calSihwa";
 import RoutingTable from "./pages/routingtable/RoutingTable";
 import { SourceProvider } from "./context/sourcesinkContext/sourceProvider";
 import { TotalvalueProvider } from "./context/totalvalueContext/totalvalueProvider";
+import { RefProvider } from "./context/refContext";
 function App() {
   return (
     <BrowserRouter>
@@ -26,31 +27,36 @@ function App() {
             <DateProvider>
               <DeviceProvider>
                 <SourceProvider>
-                  <Routes>
-                    <Route path="/" element={<Splash />} />
-                    <Route
-                      path="/ansan"
-                      element={<Layout children={<Ansan />} />}
-                    />
-                    <Route
-                      path="/sihwa"
-                      element={<Layout children={<Sihwa />} />}
-                    />
-                    <Route
-                      path="/seoulsihwa"
-                      element={<Layout children={<SeoulSihwa />} />}
-                    />
-                    <Route path="/prevansan" element={<PrevAnsan />} />
-                    <Route path="/prevsihwa" element={<PrevSihwa />} />
-                    <Route
-                      path="/prevseoulsihwa"
-                      element={<PrevSeoulSihwa />}
-                    />
-                    <Route path="/calansan" element={<CalAnsan />} />
-                    <Route path="/calsihwa" element={<CalSihwa />} />
-                    <Route path="/calseoulsihwa" element={<CalSeoulsihwa />} />
-                    <Route path="/routingtable" element={<RoutingTable />} />
-                  </Routes>
+                  <RefProvider>
+                    <Routes>
+                      <Route path="/" element={<Splash />} />
+                      <Route
+                        path="/ansan"
+                        element={<Layout children={<Ansan />} />}
+                      />
+                      <Route
+                        path="/sihwa"
+                        element={<Layout children={<Sihwa />} />}
+                      />
+                      <Route
+                        path="/seoulsihwa"
+                        element={<Layout children={<SeoulSihwa />} />}
+                      />
+                      <Route path="/prevansan" element={<PrevAnsan />} />
+                      <Route path="/prevsihwa" element={<PrevSihwa />} />
+                      <Route
+                        path="/prevseoulsihwa"
+                        element={<PrevSeoulSihwa />}
+                      />
+                      <Route path="/calansan" element={<CalAnsan />} />
+                      <Route path="/calsihwa" element={<CalSihwa />} />
+                      <Route
+                        path="/calseoulsihwa"
+                        element={<CalSeoulsihwa />}
+                      />
+                      <Route path="/routingtable" element={<RoutingTable />} />
+                    </Routes>
+                  </RefProvider>
                 </SourceProvider>
               </DeviceProvider>
             </DateProvider>
