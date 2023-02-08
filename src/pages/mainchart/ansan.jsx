@@ -1,6 +1,5 @@
 import Graph from "../../components/chart/chart";
 import styled from "styled-components";
-import axios from "axios";
 import Info from "../../components/select/Info";
 import React,{useEffect} from "react";
 import "../page.css"

@@ -8,9 +8,9 @@ export const device_id1 = [
   { company: "SH00007", device: ["E00001", "E00002", "E00003"] },
   { company: "SH00008", device: ["E00001"] },
   { company: "SH00009", device: ["E00001"] },
-  { company: "SH000010", device: ["E00001"] },
+  { company: "SH00010", device: ["E00001"] },
   {
-    company: "SH000011",
+    company: "SH00011",
     device: ["E00001"],
   },
 ];

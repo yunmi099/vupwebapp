@@ -25,12 +25,9 @@ const EquationBody = (props)=> {
             })
             }
             <PostButton onClick={()=>{
-                if(source ===true){
-                    postSourceSink(1,props.devicename,value);
-                } else {
-                    postSourceSink(2, props.devicename,value);               
-                }
-                }}>Submit</PostButton>
+                    postSourceSink(source,props.devicename,value);
+                }}
+                >Submit</PostButton>
         </div> 
 
     );

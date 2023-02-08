@@ -6,7 +6,10 @@ import { TotalPostButton } from "../../components/calcomponent/style";
 import { useTotalvalueContext } from "../../context/totalvalueContext/useTotalvalueContext";
 import { useEffect } from "react";
 import { useRefContext } from "../../context/refContext";
+import { postSourceSink } from "../../api/api";
+import { useSourceContext } from "../../context/sourcesinkContext/useSourcecontext";
 const CalSeoulSihwa = ()=>{
+    const {source} = useSourceContext();
     const {entireValue, setEntireValue} = useTotalvalueContext();
     const {inputRef, setInputRef} = useRefContext();
     useEffect(()=>setEntireValue({}),[]);
@@ -14,6 +17,7 @@ const CalSeoulSihwa = ()=>{
         inputRef.map((key)=>{
          key.current.value = null;    
         })
+        Object.keys(entireValue).map(key=>postSourceSink(source, key, entireValue[key]));
         setInputRef([]);
         setEntireValue({});
     }
