@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/vupwebapp/static/css/main.580285eb.css",
+    "main.js": "/vupwebapp/static/js/main.58eaeaff.js",
+    "static/js/787.ae220161.chunk.js": "/vupwebapp/static/js/787.ae220161.chunk.js",
+    "static/media/PretendardVariable.ttf": "/vupwebapp/static/media/PretendardVariable.d008a69682c7c6bef29a.ttf",
+    "service-worker.js": "/vupwebapp/service-worker.js",
+    "static/media/logo1.jpeg": "/vupwebapp/static/media/logo1.b1f6e2b5270a0ed4ab11.jpeg",
+    "static/media/logo2.png": "/vupwebapp/static/media/logo2.8b302dcff0ea314200de.png",
+    "index.html": "/vupwebapp/index.html",
+    "main.580285eb.css.map": "/vupwebapp/static/css/main.580285eb.css.map",
+    "main.58eaeaff.js.map": "/vupwebapp/static/js/main.58eaeaff.js.map",
+    "787.ae220161.chunk.js.map": "/vupwebapp/static/js/787.ae220161.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.580285eb.css",
+    "static/js/main.58eaeaff.js"
+  ]
+}
