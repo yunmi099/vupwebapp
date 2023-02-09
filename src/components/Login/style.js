@@ -9,7 +9,7 @@ export const StyledInput = styled.input`
   font-size: 0.7em;
 `;
 export const SubmitInput = styled(StyledInput)`
-  width: 33vw;
+  width: calc(30vw + 25px);
   color: white;
   font-weight: 700;
   background-color: #1e88e5;

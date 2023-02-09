@@ -15,15 +15,26 @@ const [city,setCity] = useState([]);
     }  else if (props.device ===2){
         setCity(device_id2);
     } 
-}
+}   
     ,[]);
-    const [device , setDevice] = useState("AS0001");
-    const [subDevice, setSubDevice] = useState("E00001");
+    const [id, setId] = useState(null);
+    const [device , setDevice] = useState();
+    const [subDevice, setSubDevice] = useState();
     const {setDeviceId} = useDeviceContext();
     useEffect(()=>{
-   
-        setDeviceId(device.concat('_', subDevice))
-    },[device, subDevice])
+        if (id != null){
+            setDeviceId(id.concat('_', subDevice))
+        }
+    },[id, subDevice])
+    const onHandleDevice = (e)=> {
+        city.map((key)=>{
+            if (key.name === e.target.value){
+                setId(key.company);
+            }
+        })
+        setDevice(e.target.value);
+        setSubDevice("E00001");
+    }
     return(
         <div className = "select">
     <div>
@@ -38,15 +49,15 @@ const [city,setCity] = useState([]);
         <div className="titleFont">
             Device Id
         </div>
-        <select className = "input" onChange={e=>{setDevice(e.target.value);setSubDevice("E00001")}}>
+        <select className = "input" onChange={e=>{onHandleDevice(e)}}>
         {city.map((key, index)=>{
             return(
-        <option key={index}>{key.company}</option>);})}
+        <option key={index}>{key.name}</option>);})}
         </select>
         <select className = "input" onChange={e=>setSubDevice(e.target.value)}>
-        {
+        {id === null ? city[0] ?(city[0].device).map((key, index)=><option key={index}>{key}</option>):null :
              city.map((key)=>
-                (device === key.company)? (key.device).map((key, index)=><option key={index} >{key}</option>):null
+                (device === key.name)? (key.device).map((key, index)=><option key={index} >{key}</option>):null
                 )
         }
         </select>

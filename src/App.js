@@ -32,15 +32,33 @@ function App() {
                       <Route path="/" element={<Splash />} />
                       <Route
                         path="/ansan"
-                        element={<Layout children={<Ansan />} />}
+                        element={
+                          <Layout
+                            children={<Ansan />}
+                            location={"/prevansan"}
+                            number={0}
+                          />
+                        }
                       />
                       <Route
                         path="/sihwa"
-                        element={<Layout children={<Sihwa />} />}
+                        element={
+                          <Layout
+                            children={<Sihwa />}
+                            location={"/prevsihwa"}
+                            number={1}
+                          />
+                        }
                       />
                       <Route
                         path="/seoulsihwa"
-                        element={<Layout children={<SeoulSihwa />} />}
+                        element={
+                          <Layout
+                            children={<SeoulSihwa />}
+                            location={"/prevseoulsihwa"}
+                            number={2}
+                          />
+                        }
                       />
                       <Route path="/prevansan" element={<PrevAnsan />} />
                       <Route path="/prevsihwa" element={<PrevSihwa />} />

@@ -33,8 +33,8 @@ function Splash() {
 
   return (
     <StyledHeader>
-      <img src={require('../assets/images/Logo/logo1.jpeg')} width="62%"/>
-      <Spinner animating={animating} style={{ marginBottom: "10%" }} />
+      <img src={require('../assets/images/Logo/logo1.jpeg')} width="300px"/>
+      <Spinner animating={animating} style={{ marginBottom: "200px" }} />
       {animating ? null : (success===true ? <Select/>: <Login/>)}
     </StyledHeader>
   );

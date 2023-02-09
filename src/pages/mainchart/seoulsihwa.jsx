@@ -9,7 +9,9 @@ const SeoulSihwa = ()=>{
     <div className = "mainInner">
         <Info device={2}/>
         <GraphWrap>
-        <Graph/></GraphWrap>
+        <Graph/>
+        <Graph/>
+        </GraphWrap>
     </div>)
 }
 const GraphWrap = styled.div`

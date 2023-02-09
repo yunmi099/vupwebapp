@@ -1,20 +1,32 @@
-import styled from "styled-components";
-const StyledHeader = styled.header`
-  background: #1e88e5;
-  width: 100vw;
-  height: 7vh;
-  display: fixed;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 1.1em;
-  color: white;
-`;
-function Header() {
+import { useNavigate } from "react-router-dom";
+function Header(props) {
+  const navigate = useNavigate();
   return (
-    <StyledHeader>
-      <div>가상에너지 생산공급설비 v1.4</div>
-    </StyledHeader>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", margin: "10px" }}>
+        <img
+          src={require("../../assets/images/Logo/left-arrow.png")}
+          width="30px"
+          style={{ marginRight: 15 }}
+          onClick={() => {
+            navigate(props.location);
+          }}
+        />
+        <img
+          src={require("../../assets/images/Logo/logo2.png")}
+          width="170px"
+          onClick={() => {
+            navigate("/");
+          }}
+        />
+      </div>
+    </div>
   );
 }
 

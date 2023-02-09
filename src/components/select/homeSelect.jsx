@@ -10,21 +10,21 @@ const Select= () => {
           navigate("/prevansan");
         }}
       >
-        안산 도금
+        안산 도금 산단
       </StyledLi>
       <StyledLi
         onClick={() => {
           navigate("/prevsihwa");
         }}
       >
-        시화 도금
+        시화 도금 산단
       </StyledLi>
       <StyledLi
         onClick={() => {
           navigate("/prevseoulsihwa");
         }}
       >
-        시화 서울 도금
+        인천 표면 산단
       </StyledLi>
       <StyledLi
         onClick={() => {

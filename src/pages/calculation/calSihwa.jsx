@@ -23,7 +23,7 @@ const CalSeoulSihwa = ()=>{
     }
     return(
     <div style={{display: 'flex', flexDirection:'column', width: "100%", height:"100%",alignItems:'center'}}>
-        <CalHeader title={"시화 도금 "}/>
+        <CalHeader title={"시화 도금 산단"} location={'/prevsihwa'}/>
         <EquationHeader/>
         {device_id1.map((key, index)=>
              <EquationBody devicename={key.company} key={index}/>

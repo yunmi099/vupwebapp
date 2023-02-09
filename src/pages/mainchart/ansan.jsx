@@ -9,7 +9,9 @@ const Ansan = ()=>{
     <div className = "mainInner">
         <Info device={0}/>
         <GraphWrap>
-        <Graph/></GraphWrap>
+        <Graph/>
+        <Graph/>
+        </GraphWrap>
     </div>)
 }
 const GraphWrap = styled.div`

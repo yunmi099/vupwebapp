@@ -9,6 +9,7 @@ const Sihwa = ()=>{
     <div className = "mainInner">
         <Info device={1}/>
         <GraphWrap>
+        <Graph/>
         <Graph/></GraphWrap>
     </div>)
 }

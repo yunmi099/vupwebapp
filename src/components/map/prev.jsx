@@ -7,31 +7,51 @@ import { device_id1 } from "../../assets/Device/sihwa";
 import { device_id2 } from "../../assets/Device/sihwaseoul";
 import {StyledMenu, StyledLi, StyledRouting} from './style'
 import RealtimeChart from "../chart/realtimeChart";
+import { useDeviceContext } from "../../context/deviceContext";
 const Prev= (props)=>{
     const navigate = useNavigate();
     const [city,setCity] = useState([]);
+    const {setDeviceId} = useDeviceContext();
     useEffect(()=>{
       if (props.device === 0){
-          setCity(device_id0);
+         setDeviceId("AS00001_E00001");
+         setTotalDeviceId("AS00001_E00001")
+         setCity(device_id0);
       } else if (props.device ===1){
-          setCity(device_id1);
+         setDeviceId("SH00001_E00001");
+         setTotalDeviceId("SH00001_E00001")
+         setCity(device_id1);
       }  else if (props.device ===2){
-          setCity(device_id2);
+         setDeviceId("SH00012_E00001");
+         setTotalDeviceId("SH00012_E00001")
+         setCity(device_id2);
       } 
   },[]);
-
-      const [device , setDevice] = useState("AS00001");
-      const [subDevice, setSubDevice] = useState("E00001");
-      const [totalDeviceId, setTotalDeviceId] =useState("AS00001_E00001");
+      const [id, setId] = useState(null);
+      const [device , setDevice] = useState();
+      const [subDevice, setSubDevice] = useState();
+      const [totalDeviceId, setTotalDeviceId] =useState("");
       useEffect(()=>{
-        setTotalDeviceId(device.concat('_', subDevice))
-        console.log(device.concat('_', subDevice));
-    },[device, subDevice])
+        if (id != null){
+          setTotalDeviceId(id.concat('_', subDevice))
+        }
+    },[id, subDevice])
+    const onHandleDevice = (e)=> {
+      city.map((key)=>{
+          if (key.name === e.target.value){
+              setId(key.company);
+          }
+      })
+      setDevice(e.target.value);
+      setSubDevice("E00001");
+  }
     return(
         <>
     <div style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
       <div style={{display:'flex', alignItems:'center', margin:"10px"}}>
-        <img src={require('../../assets/images/Logo/logo2.png')} width="20%" onClick={()=>{navigate('/')}}/>
+
+        <img src={require('../../assets/images/Logo/left-arrow.png')} width="30px" style={{marginRight:15}} onClick={()=>{navigate('/')}}/>
+        <img src={require('../../assets/images/Logo/logo2.png')} width="170px" onClick={()=>{navigate('/')}}/>
        
       </div>
       <div style={{display:'flex'}}>
@@ -49,17 +69,17 @@ const Prev= (props)=>{
             <div className="titleFont">
                 Device Id
             </div>
-            <select className = "input" onChange={e=>{setDevice(e.target.value);setSubDevice("E00001")}}>
+            <select className = "input" onChange={e=>{onHandleDevice(e)}}>
             {city.map((key, index)=>{
                   return(
-            <option key={index}>{key.company}</option>);})}
+            <option key={index}>{key.name}</option>);})}
             </select>
             <select className = "input" onChange={e=>setSubDevice(e.target.value)}>
-              {
-              city.map((key)=>
-                 (device === key.company)? (key.device).map((key, index)=><option key={index} >{key}</option>):null
-                   )
-                }
+            {id === null ? city[0]?(city[0].device).map((key, index)=><option key={index}>{key}</option>):null :
+             city.map((key)=>
+                (device === key.name)? (key.device).map((key, index)=><option key={index} >{key}</option>):null
+                )
+        }
            </select>
         </form>
         

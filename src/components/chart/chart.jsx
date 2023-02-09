@@ -15,13 +15,14 @@ const Graph = () => {
   const {startDate, endDate} = useDateContext();
   const {deviceId} = useDeviceContext();
   async function getData() {
+    
     try {
       const response = await axios.get(
         `http://192.168.3.125:8080/api/vup?start_dt=${startDate}&end_dt=${endDate}&device_id=${deviceId}`
       );
-      if (response.data.length !==0 ){
+      console.log(deviceId)
         setDataset1(Dataset1(response.data));
-        setDataset2(Dataset2(response.data));}
+        setDataset2(Dataset2(response.data));
     } catch (e) {
       console.log(e);
     }
@@ -44,7 +45,7 @@ const Graph = () => {
     }
   })
 
-    useEffect(()=>{getData();console.log(deviceId)},[startDate, endDate, deviceId])
+    useEffect(()=>{getData()},[startDate, endDate, deviceId])
 
 
   return (

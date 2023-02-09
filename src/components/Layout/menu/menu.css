@@ -17,3 +17,17 @@
     border-radius: 20px;
     
 }
+
+.selectedButton{
+    background-color:#e2f6ff ;
+    border: 1px solid;
+    border-color: #1e88e5;
+    color: #1e88e5;
+    font-weight: 700;
+    width: 27vw;
+    padding: 1.2vh 0px;
+    margin:10px 0px;
+    border-radius: 20px;
+    
+}
+

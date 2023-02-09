@@ -23,7 +23,7 @@ const CalAnsan = ()=>{
     }
     return(
     <div style={{display: 'flex', flexDirection:'column', width: "100%", height:"100%",alignItems:'center'}}>
-        <CalHeader title={"안산 도금"}/>
+        <CalHeader title={"안산 도금 산단"} location={'/prevansan'}/>
         <EquationHeader/>
         {device_id0.map((key, index)=>
              <EquationBody devicename={key.company} key={index}/>

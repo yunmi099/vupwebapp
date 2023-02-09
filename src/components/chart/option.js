@@ -93,7 +93,7 @@ export const options_2 = {
   },
   elements: {
     point: {
-      radius: 0.7,
+      radius: 0.5,
     },
   },
   plugins: {
@@ -136,7 +136,36 @@ export const options_2 = {
           family: "'Noto Sans KR', sans-serif",
           weight: 300,
         },
-        text: "누적 전력",
+        text: "전류",
+      },
+    },
+    // y축을 여러 개 두고 싶다면 아래와 같이 또 만들어 주세요.
+    y_sub: {
+      position: "right",
+      title: {
+        display: true,
+        align: "end",
+        color: "#808080",
+        font: {
+          size: 12,
+          family: "'Noto Sans KR', sans-serif",
+          weight: 300,
+        },
+        text: "전력",
+      },
+    },
+    y_sub2: {
+      position: "left",
+      title: {
+        display: true,
+        align: "end",
+        color: "#808080",
+        font: {
+          size: 12,
+          family: "'Noto Sans KR', sans-serif",
+          weight: 300,
+        },
+        text: "누적전력",
       },
     },
   },
