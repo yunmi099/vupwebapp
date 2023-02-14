@@ -28,7 +28,7 @@ const Select= () => {
       </StyledLi>
       <StyledLi
         onClick={() => {
-          navigate("/rountingtable");
+          navigate("/routingtable");
         }}
       >
         Routing Table 

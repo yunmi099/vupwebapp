@@ -1,5 +1,6 @@
 .deviceContainer{
     margin: 2% 4.5%;
+    width: 80%;
     display:flex;
     justify-content: space-evenly;
 }

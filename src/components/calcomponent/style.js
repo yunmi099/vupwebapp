@@ -20,7 +20,7 @@ export const DeviceButton = styled.div`
   font-size: 0.7em;
   font-weight: 500;
   margin: 10px 10px 10px 10px;
-  width: 16%;
+  width: 17%;
   height: 30px;
   line-height: 30px;
   border-color: #1e88e5;
@@ -33,7 +33,7 @@ export const Element = styled.div`
   font-size: 0.65em;
   font-weight: 600;
 
-  width: 17%;
+  width: 16%;
   height: 32px;
   line-height: 30px;
   border-color: #1e88e5;
