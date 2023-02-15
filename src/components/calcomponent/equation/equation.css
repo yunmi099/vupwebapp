@@ -4,3 +4,27 @@
     display:flex;
     justify-content: space-evenly;
 }
+.checkButton{
+        background-color:#e2f6ff ;
+        width: 16vw;
+        height:30px;
+        line-height: 30px;
+        font-weight: 600;
+        font-size: 0.77em;
+        margin:0px 8%;
+        border-radius: 15px;
+}
+.date{
+    width: 15vw;
+    height:25px;
+    line-height: 30px;
+    font-weight: 600;
+    font-size: 0.7em;
+    font-family: pretendard;
+    padding-left:10px;
+    margin:0px 8%;
+    margin-top:5px;
+    border: 1px solid;
+    border-color:grey;
+    border-radius: 10px;
+}

@@ -12,7 +12,7 @@ function Header(props) {
       <div style={{ display: "flex", alignItems: "center", margin: "10px" }}>
         <img
           src={require("../../assets/images/Logo/left-arrow.png")}
-          width="30px"
+          width="20px"
           style={{ marginRight: 15 }}
           onClick={() => {
             navigate(props.location);

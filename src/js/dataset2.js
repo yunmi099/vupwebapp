@@ -15,9 +15,9 @@ const Dataset2 = (INFO) => {
         type: "line",
         label: "POWR",
         yAxisID: "y_sub",
-        backgroundColor: "rgb(75, 192, 192)",
+        backgroundColor: "grey",
         data: INFO.map((key) => key.POWR),
-        borderColor: "rgb(75, 192, 192)",
+        borderColor: "grey",
         borderWidth: 2,
       },
       {

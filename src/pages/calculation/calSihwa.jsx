@@ -8,23 +8,25 @@ import { useEffect } from "react";
 import { useRefContext } from "../../context/refContext";
 import { postSourceSink } from "../../api/api";
 import { useSourceContext } from "../../context/sourcesinkContext/useSourcecontext";
+import { useDayContext } from "../../context/dayContext";
 const CalSeoulSihwa = ()=>{
     const {source} = useSourceContext();
     const {entireValue, setEntireValue} = useTotalvalueContext();
     const {inputRef, setInputRef} = useRefContext();
+    const {day, setDay} = useDayContext();
     useEffect(()=>setEntireValue({}),[]);
     const totalSubmitEvent = ()=>{
         inputRef.map((key)=>{
          key.current.value = null;    
         })
-        Object.keys(entireValue).map(key=>postSourceSink(source, key, entireValue[key]));
+        Object.keys(entireValue).map(key=>postSourceSink(day,source, key, entireValue[key]));
         setInputRef([]);
         setEntireValue({});
     }
     return(
     <div style={{display: 'flex', flexDirection:'column', width: "100%", height:"100%",alignItems:'center'}}>
-        <CalHeader title={"시화 도금 산단"} location={'/prevsihwa'}/>
-        <EquationHeader/>
+        <CalHeader title={"시화 도금 산단"} location={'/prevsihwa'} />
+        <EquationHeader location={'/calprevvaluesihwa'}/>
         {device_id1.map((key, index)=>
              <EquationBody devicename={key.company} key={index}/>
         )}

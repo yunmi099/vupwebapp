@@ -50,7 +50,7 @@ const Prev= (props)=>{
     <div style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
       <div style={{display:'flex', alignItems:'center', margin:"10px"}}>
 
-        <img src={require('../../assets/images/Logo/left-arrow.png')} width="30px" style={{marginRight:15}} onClick={()=>{navigate('/')}}/>
+        <img src={require('../../assets/images/Logo/left-arrow.png')} width="20px" style={{marginRight:15}} onClick={()=>{navigate('/')}}/>
         <img src={require('../../assets/images/Logo/logo2.png')} width="170px" onClick={()=>{navigate('/')}}/>
        
       </div>
@@ -64,7 +64,7 @@ const Prev= (props)=>{
     
     </div>
     <div style={{display: "flex", alignItems: "center", justifyContent:"center", witdh: "100%", height:"100%", flexDirection:"column"}}>
-        <GoogleMap/>
+        <GoogleMap location={props.device}/>
         <form>
             <div className="titleFont">
                 Device Id

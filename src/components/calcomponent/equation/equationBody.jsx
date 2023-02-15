@@ -5,6 +5,7 @@ import { DeviceButton, StyledInput, PostButton } from '../style';
 import { useSourceContext } from '../../../context/sourcesinkContext/useSourcecontext.js'
 import { useTotalvalueContext } from '../../../context/totalvalueContext/useTotalvalueContext';
 import { useRefContext } from '../../../context/refContext';
+import { useDayContext } from '../../../context/dayContext';
 const EquationBody = (props)=> {
     const {source} = useSourceContext();
     const {entireValue, setEntireValue} = useTotalvalueContext();
@@ -12,6 +13,8 @@ const EquationBody = (props)=> {
     const valueIndex = ["demand", "unitp", "se_time", "price", "efficiency"]
     const [value,setValue] = useState({});
     const inputText =  [useRef(), useRef(), useRef(), useRef(), useRef()];
+    const {day, setDay} = useDayContext();
+    
     return(
         <div className = 'deviceContainer'>
             <DeviceButton>{props.devicename}</DeviceButton>
@@ -25,7 +28,7 @@ const EquationBody = (props)=> {
             })
             }
             <PostButton onClick={()=>{
-                    postSourceSink(source,props.devicename,value);
+                    postSourceSink(day,source,props.devicename,value);
                 }}
                 >Submit</PostButton>
         </div> 
