@@ -8,10 +8,12 @@ import { device_id2 } from "../../assets/Device/sihwaseoul";
 import {StyledMenu, StyledLi, StyledRouting} from './style'
 import RealtimeChart from "../chart/realtimeChart";
 import { useDeviceContext } from "../../context/deviceContext";
+import { datetimeToString } from "../../js/dateToString";
 const Prev= (props)=>{
     const navigate = useNavigate();
     const [city,setCity] = useState([]);
     const {setDeviceId} = useDeviceContext();
+    const [date, setDate] = useState(new Date())
     useEffect(()=>{
       if (props.device === 0){
          setDeviceId("AS00001_E00001");
@@ -65,6 +67,10 @@ const Prev= (props)=>{
     </div>
     <div style={{display: "flex", alignItems: "center", justifyContent:"center", witdh: "100%", height:"100%", flexDirection:"column"}}>
         <GoogleMap location={props.device}/>
+        <div style={{display:'flex', flexDirection:'column', margin:10}}>
+                <div style={{fontSize:'0.85em'}}>✅ 이 차트는 1분에 한번씩 업데이트 됩니다. </div>     
+                <div style={{marginTop:5,fontSize:'0.8em'}}>마지막 업데이트 : {datetimeToString(date)}</div>   
+        </div> 
         <form>
             <div className="titleFont">
                 Device Id
@@ -82,8 +88,7 @@ const Prev= (props)=>{
         }
            </select>
         </form>
-        
-        <RealtimeChart deviceId={totalDeviceId}/>
+        <RealtimeChart deviceId={totalDeviceId} date={date} setDate={setDate}/>
       
         <div style={{display:"flex"}}>
           <StyledLi

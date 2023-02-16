@@ -26,7 +26,12 @@ const RealtimeChart = (props) => {
     useEffect(()=>{
     getData()
   },[])
-    useEffect(()=>{getData();console.log(props.deviceId)},[props.deviceId])
+  setInterval(() => {
+    getData();
+    props.setDate(new Date())
+   }, 60000);
+
+    useEffect(()=>{props.setDate(new Date());getData();console.log(props.deviceId)},[props.deviceId])
   return (
     <div> 
         <Container>{
