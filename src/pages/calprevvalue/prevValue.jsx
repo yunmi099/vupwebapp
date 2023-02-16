@@ -20,7 +20,6 @@ const PrevValue = (props)=>{
           `http://192.168.3.125:8080/api/vup/input?source=${SOURCE}&st_dt=${startDate}&en_dt=${endDate}&table=${deviceID}`
         );
 
-    // 기존 데이터에 새로운 데이터를 추가하여 업데이트
         if(response.data.length > 0){
           setInfo(prevState=>[...prevState,response.data]) 
          }
@@ -56,12 +55,12 @@ const PrevValue = (props)=>{
                 {
               device.map((key,index)=>{
                 return(   
-                 data.length !==0 ? 
-                  <div key={index} style={{width:'90vw', display:'flex', flexDirection:'column', alignItems:'flex-start'}}>
+                    info.length!==0&&data[index]!==undefined?
+                  <div key={index} style={{width:'90vw', display:'flex', flexDirection:'column', alignItems:'flex-start', marginBottom :20}}>
                     <div style={{fontSize:'0.9em', fontWeight:'700',marginLeft:20, margin:15}}>
                       {key.name}
                     </div>
-                    {info.length!==0&&data[index]!==undefined?<Table columns={column} data={data[index]} key={index}/>:null}
+                   <Table columns={column} data={data[index]} key={index}/>
                   </div> : null
                   );
               })

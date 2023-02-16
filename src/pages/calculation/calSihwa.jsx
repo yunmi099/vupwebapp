@@ -28,7 +28,7 @@ const CalSeoulSihwa = ()=>{
         <CalHeader title={"시화 도금 산단"} location={'/prevsihwa'} />
         <EquationHeader location={'/calprevvaluesihwa'}/>
         {device_id1.map((key, index)=>
-             <EquationBody devicename={key.company} key={index}/>
+             <EquationBody devicename={key.name} key={index}/>
         )}
         <TotalPostButton onClick={()=>totalSubmitEvent()}>Submit</TotalPostButton>
     </div>)

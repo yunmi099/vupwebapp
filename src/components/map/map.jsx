@@ -53,6 +53,7 @@ function GoogleMap(props) {
           text: locations[i].place,
           fontSize: '0.6em',
           fontWeight:'500',
+          color:'rgb(109,109,109)',
         },
         position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
       });
