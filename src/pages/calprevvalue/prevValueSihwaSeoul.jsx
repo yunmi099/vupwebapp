@@ -1,5 +1,8 @@
-import Header from "../../components/Layout/header"
+import { device_id2 } from "../../assets/Device/sihwaseoul"
+import PrevValue from "./prevValue"
 const PrevValueSeoulSihwa = ()=>{
-    return(<div><Header location={"/calseoulsihwa"}/></div>)
+    return(<div>
+        <PrevValue device={device_id2}></PrevValue>
+        </div>)
 }
 export default PrevValueSeoulSihwa
