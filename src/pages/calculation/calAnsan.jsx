@@ -14,7 +14,7 @@ const CalAnsan = ()=>{
     const {entireValue, setEntireValue} = useTotalvalueContext();
     const {inputRef, setInputRef} = useRefContext();
     const {day, setDay} = useDayContext();
-    useEffect(()=>setEntireValue({}),[]);
+    useEffect(()=>{setInputRef([]);setEntireValue({})},[]);
     const totalSubmitEvent = ()=>{
         inputRef.map((key)=>{
          key.current.value = null;    

@@ -1,4 +1,4 @@
-import GoogleMap from "../../components/map/map";
+import GoogleMap from "../map/map";
 // import { Map } from "./direction";
 import { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,11 +9,13 @@ import {StyledMenu, StyledLi, StyledRouting} from './style'
 import RealtimeChart from "../chart/realtimeChart";
 import { useDeviceContext } from "../../context/deviceContext";
 import { datetimeToString } from "../../js/dateToString";
+import PrevHeader from "./prevHeader";
 const Prev= (props)=>{
     const navigate = useNavigate();
     const [city,setCity] = useState([]);
     const {setDeviceId} = useDeviceContext();
     const [date, setDate] = useState(new Date())
+    console.log(props)
     useEffect(()=>{
       if (props.device === 0){
          setDeviceId("AS00001_E00001");
@@ -50,19 +52,8 @@ const Prev= (props)=>{
     return(
         <>
     <div style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
-      <div style={{display:'flex', alignItems:'center', margin:"10px"}}>
+      <PrevHeader title={props.title}/>
 
-        <img src={require('../../assets/images/Logo/left-arrow.png')} width="20px" style={{marginRight:15}} onClick={()=>{navigate('/')}}/>
-        <img src={require('../../assets/images/Logo/logo2.png')} width="170px" onClick={()=>{navigate('/')}}/>
-       
-      </div>
-      <div style={{display:'flex'}}>
-      <StyledMenu onClick={()=>window.open('http://iae.darwin3d.co.kr/')}>Routing Network</StyledMenu>
-        <StyledMenu onClick={()=>navigate('/prevansan')}>안산 도금 산단</StyledMenu>
-        <StyledMenu onClick={()=>navigate('/prevsihwa')}>시화 도금 산단</StyledMenu>
-        <StyledMenu onClick={()=>navigate('/prevseoulsihwa')}>인천 표면 산단</StyledMenu>
-        <div style={{fontSize:"0.8em",fontWeight:'700', margin:"30px 10px  0px 5px" , color:'blue'}}>{props.title}</div>
-      </div>
     
     </div>
     <div style={{display: "flex", alignItems: "center", justifyContent:"center", witdh: "100%", height:"100%", flexDirection:"column"}}>
@@ -105,6 +96,13 @@ const Prev= (props)=>{
         >
           source/sink 
         </StyledLi>
+       {props.device===0?<StyledLi
+          onClick={() => {
+            navigate('/ansannmlist');
+          }}
+        >
+        Ansan name list    
+        </StyledLi>:null}
         </div>
     </div>
     </>)

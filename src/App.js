@@ -22,6 +22,7 @@ import PrevValueAnsan from "./pages/calprevvalue/prevValueAnsan";
 import PrevValueSeoulSihwa from "./pages/calprevvalue/prevValueSihwaSeoul";
 import PrevValueSihwa from "./pages/calprevvalue/prevValuesihwa";
 import { DayProvider } from "./context/dayContext";
+import AnsanNmList from "./pages/ansanNmList/nameList";
 function App() {
   return (
     <BrowserRouter>
@@ -93,6 +94,7 @@ function App() {
                           path="/routingtable"
                           element={<RoutingTable />}
                         />
+                        <Route path="/ansannmlist" element={<AnsanNmList />} />
                       </Routes>
                     </DayProvider>
                   </RefProvider>

@@ -60,7 +60,7 @@ const PrevValue = (props)=>{
                     <div style={{fontSize:'0.9em', fontWeight:'700',marginLeft:20, margin:15}}>
                       {key.name}
                     </div>
-                   <Table columns={column} data={data[index]} key={index}/>
+                    <Table columns={column} data={data[index]} key={index}/>
                   </div> : null
                   );
               })

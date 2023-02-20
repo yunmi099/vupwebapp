@@ -11,6 +11,7 @@ import {datetimeToString} from "../../js/dateToString";
 const RoutingTable = ()=>{
     const [info, setInfo] = useState();
     const [air, setAir] = useState(true);
+    
     const [infoForm, setInfoForm] = useState();
     const [date, setDate] = useState(new Date())
     async function getTableData(air) {

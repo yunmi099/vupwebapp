@@ -1,4 +1,4 @@
-import Prev from "../../components/map/prev";
+import Prev from "../../components/prev/prev";
 const PrevSihwa = ()=>{
     return(
     <>
