@@ -4,7 +4,6 @@ import { Line, Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto'
 import axios from "axios";
 import { useDateContext } from '../../context/dateContext';
-
 const Dataset = (INFO) => {
     return {
       labels: INFO.map((key) => key.dtm.substring(11, 19)),
@@ -101,7 +100,7 @@ const options_1 = {
     },
   }
 }
-const NMchart = () => {
+const NMchart = (props) => {
   const [size, setSize] = useState(false);
   const [dataset, setDataset] = useState({});
   const {startDate, endDate} = useDateContext();
@@ -109,9 +108,8 @@ const NMchart = () => {
     
     try {
       const response = await axios.get(
-        `http://192.168.3.125:8081/api/vup/woo?st_dt=${startDate}}&en_dt=${endDate}`
+        `http://192.168.3.125:8081/api/vup/woo?id=${props.company}&st_dt=${startDate}}&en_dt=${endDate}`
       );
-        console.log(response.data)
         setDataset(Dataset(response.data));
     } catch (e) {
       console.log(e);
@@ -120,7 +118,8 @@ const NMchart = () => {
   useEffect(()=>{
     getData()
     },[])
-    useEffect(()=>{getData()},[startDate, endDate])
+    useEffect(()=>{
+      getData()},[startDate, endDate, props.company])
   return (
     <>     
         <Container Mode = {size}>{
@@ -139,5 +138,5 @@ const Container = styled.div`
   padding:20px;
   align-items: center;
   justify-content: center;
-  width : 90%;
+  width : 80%;
 `;
