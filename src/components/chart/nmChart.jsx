@@ -101,29 +101,10 @@ const options_1 = {
   }
 }
 const NMchart = (props) => {
-  const [size, setSize] = useState(false);
-  const [dataset, setDataset] = useState({});
-  const {startDate, endDate} = useDateContext();
-  async function getData() {
-    
-    try {
-      const response = await axios.get(
-        `http://192.168.3.125:8081/api/vup/woo?id=${props.company}&st_dt=${startDate}}&en_dt=${endDate}`
-      );
-        setDataset(Dataset(response.data));
-    } catch (e) {
-      console.log(e);
-    }
-  }
-  useEffect(()=>{
-    getData()
-    },[])
-    useEffect(()=>{
-      getData()},[startDate, endDate, props.company])
   return (
     <>     
-        <Container Mode = {size}>{
-         Object.keys(dataset).length !== 0?  <Line type="line" data={dataset} options={options_1}/> : null
+        <Container>{
+         props.data?Object.keys(Dataset(props.data)).length !== 0?  <Line type="line" data={Dataset(props.data)} options={options_1}/> : null:null
         }
         </Container>
       </>
