@@ -23,9 +23,6 @@ const RealtimeChart = (props) => {
       console.log(e);
     }
   }
-    useEffect(()=>{
-    getData()
-  },[])
   setInterval(() => {
     getData();
     props.setDate(new Date())

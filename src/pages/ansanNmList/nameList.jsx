@@ -16,7 +16,6 @@ const AnsanNmList = ()=>{
     const [company, setCompany] = useState("영일");
     const [date, setDate] = useState(new Date())
     async function getData() {
-    
         try {
           const response = await axios.get(
             `http://192.168.3.125:8081/api/vup/woo?id=${company}&st_dt=${startDate}}&en_dt=${endDate}`
