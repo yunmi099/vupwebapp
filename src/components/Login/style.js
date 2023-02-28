@@ -15,6 +15,7 @@ export const SubmitInput = styled(StyledInput)`
   background-color: #1e88e5;
   font-size: 0.85em;
   margin: 20px 0px 0px 0px;
+  height: 5vh;
 `;
 
 export const WrapDiv = styled.form`

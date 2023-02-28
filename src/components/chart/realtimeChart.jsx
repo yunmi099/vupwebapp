@@ -12,10 +12,12 @@ const RealtimeChart = (props) => {
   const [dataset1, setDataset1] = useState({});
   const [dataset2, setDataset2] = useState({});
   async function getData() {
+  
     try {
       const response = await axios.get(
         `http://192.168.3.125:8080/api/vup?start_dt=${dateToString(new Date())}&end_dt=${dateToString(new Date())}&device_id=${props.deviceId}`
       );
+      console.log(response.data)
       if (response.data.length !==0 ){
         setDataset1(Dataset1(response.data));
         setDataset2(Dataset2(response.data));}
